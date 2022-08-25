@@ -1,7 +1,7 @@
 /*
  * @Author: xiewenhao
  * @Date: 2022-08-19 13:40:16
- * @LastEditTime: 2022-08-19 17:23:02
+ * @LastEditTime: 2022-08-22 09:36:40
  * @Description: 
  */
 import * as actionTypes from './constants'
@@ -18,7 +18,7 @@ const firstAction = (data) => ({
     type: actionTypes.CHANGE_FIRST,
     data
 })
-const buyTicket = () => ({})
+
 export const getMoviesList = () => {
     return (dispatch) => {
         getmoviesRequest().then(item => {
@@ -37,7 +37,7 @@ export const changeFirstStore = (id) => {
 
 export const checkPiao = (item) => {
     return (dispatch) => {
-        const action = buyTicket(item)
+        const action = changemovie(item)
         dispatch(action)
     }
 }

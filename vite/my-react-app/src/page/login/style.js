@@ -1,7 +1,7 @@
 /*
  * @Author: xiewenhao
  * @Date: 2022-08-09 16:54:25
- * @LastEditTime: 2022-08-16 14:36:04
+ * @LastEditTime: 2022-08-22 13:29:16
  * @Description: 
  */
 import styled from "styled-components";
@@ -10,7 +10,7 @@ const Wrapper = styled.div `
     animation: background-fade 9s infinite;
     background-image: linear-gradient(to bottom,${style['f-color']} 0%,#f3f3f3 30%);
     padding:1rem;
-    height:100vh;
+    padding-bottom:50px;
     @keyframes background-fade {
         33.3% {
             background-image: linear-gradient(to bottom,${style['f-color']} 0%,#f3f3f3 30%);

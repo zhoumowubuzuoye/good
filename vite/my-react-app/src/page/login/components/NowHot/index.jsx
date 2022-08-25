@@ -1,7 +1,7 @@
 /*
  * @Author: xiewenhao
  * @Date: 2022-08-19 10:11:54
- * @LastEditTime: 2022-08-19 17:13:38
+ * @LastEditTime: 2022-08-23 09:44:58
  * @Description:
  */
 import NowStyle from "./style";
@@ -13,15 +13,13 @@ import {
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 const NowPlay = (props) => {
-  const {
-    moveList,
-    getMoviesLists,
-    choosePiao,
-  } = props;
+  const { moveList, getMoviesLists, choosePiao } = props;
   const [buyList, setBuyList] = useState([]);
 
   useEffect(() => {
-    getMoviesLists();
+    if (moveList.length === 0) {
+      getMoviesLists();
+    }
   }, []);
   useEffect(() => {
     setBuyList(
@@ -31,9 +29,12 @@ const NowPlay = (props) => {
       })
     );
   }, [moveList]);
-  const chooseKey = (item) => {
-    console.log(choosePiao);
-    choosePiao(item);
+  const chooseKey = (id) => {
+    const data = moveList.map((item) => {
+      if (item.id === id) item.check = !item.check;
+      return item;
+    });
+    choosePiao(data);
   };
   return (
     <NowStyle>
@@ -48,8 +49,8 @@ const NowPlay = (props) => {
                 <div style={{ fontSize: "12px", textAlign: "center" }}>
                   {item.title}
                 </div>
-                <div className="button" onClick={() => chooseKey(item)}>
-                  购票
+                <div className="button" onClick={() => chooseKey(item.id)}>
+                  {item.check ? "取消" : "购票"}
                 </div>
               </div>
             );
