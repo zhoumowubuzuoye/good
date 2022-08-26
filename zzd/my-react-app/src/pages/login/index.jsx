@@ -1,30 +1,34 @@
 /*
  * @Author: xiewenhao
  * @Date: 2022-08-24 14:34:52
- * @LastEditTime: 2022-08-25 17:24:22
+ * @LastEditTime: 2022-08-26 17:07:03
  * @Description:
  */
+import React, { useEffect, useState } from "react";
 import { Button, Checkbox, Form, Input } from "antd";
 import Wrapper from "./style";
+import { login } from "../../apis/api";
 const Login = () => {
+  const [from] = Form.useForm();
   const onFinish = (values) => {
-    console.log("Success:", values);
+    login(values).then((res) => {
+      console.log(res);
+    });
   };
-
+  const zhuCe = () => {};
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
   return (
     <Wrapper>
       <div className="Login">
-        <div className="login_name">
-          登录
-        </div>
+        <div className="login_name">登录</div>
         <Form
           className="formStyle"
-          name="basic"
+          name="from"
+          form={from}
           labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
+          wrapperCol={{ span: 12 }}
           initialValues={{
             remember: true,
           }}
@@ -66,9 +70,18 @@ const Login = () => {
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
 
-          <Form.Item wrapperCol={{ offset: 12, span: 16 }}>
-            <Button type="primary" htmlType="submit">
-              Submit
+          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+            <Button
+              type="primary"
+              htmlType="submit"
+              style={{
+                marginRight: "60px",
+              }}
+            >
+              登录
+            </Button>
+            <Button  onClick={zhuCe}>
+              注册
             </Button>
           </Form.Item>
         </Form>
