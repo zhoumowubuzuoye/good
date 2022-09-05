@@ -1,12 +1,11 @@
 /*
  * @Author: xiewenhao
  * @Date: 2022-08-25 16:27:13
- * @LastEditTime: 2022-08-25 17:26:14
+ * @LastEditTime: 2022-08-30 17:25:00
  * @Description: 
  */
 import styled from "styled-components";
 import background from '@/assets/background.png'
-console.log(background);
 const Wrapper = styled.div `
     width:100vw;
     height:100vh;

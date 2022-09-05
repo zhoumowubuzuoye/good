@@ -1,7 +1,7 @@
 /*
  * @Author: xiewenhao
  * @Date: 2022-08-24 13:28:36
- * @LastEditTime: 2022-08-26 11:08:30
+ * @LastEditTime: 2022-09-01 16:47:43
  * @Description: 
  */
 import {
@@ -28,14 +28,15 @@ export default defineConfig({
     }
   },
   server: {
+    host:'0.0.0.0',
     proxy: {
-      '/api': {
+      '/myapi': {
         port:5173,
         target: 'http://localhost:3007',
         cors: true,
         changeOrigin: true,
         rewrite: (path) => {
-          return path.replace(/^\/api/, "")
+          return path.replace(/^\/myapi/, "")
         },
       }
     }

@@ -1,7 +1,7 @@
 /*
  * @Author: xiewenhao
  * @Date: 2022-08-09 16:31:18
- * @LastEditTime: 2022-08-22 15:48:53
+ * @LastEditTime: 2022-08-31 10:56:26
  * @Description:
  */
 import React, { useEffect, useState } from "react";
@@ -104,7 +104,7 @@ const Home = () => {
         })}
       </div>
       <Routes>
-        {/* <Route path="*" element={<Navigate to="good" />}></Route> */}
+        <Route path="*" element={<Navigate to="good" />}></Route>
         <Route path="good" element={<Xuan />}></Route>
         <Route path="piao" element={<Piao />}></Route>
       </Routes>
